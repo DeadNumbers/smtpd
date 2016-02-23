@@ -20,13 +20,13 @@ It is based on [Brad Fitzpatrick's go-smtpd](https://github.com/bradfitz/go-smtp
 
 In general: create the server and pass a handler function to it as for the HTTP server. The server function has the following definition:
 
-```
+```Go
 func ListenAndServe(addr string, handler Handler, appname string, hostname string) error
 ```
 
 The handler function must have the following definition:
 
-```
+```Go
 func handler(remoteAddr net.Addr, from string, to []string, data []byte) 
 ```
 
@@ -42,7 +42,7 @@ The parameters are:
 The following example code creates a new server with the name "MyServerApp" that listens on the localhost address and port 2525. Upon receipt of a new mail message, the handler function parses the mail and prints the subject header.
 
 
-```
+```Go
 package main
 
 import (
